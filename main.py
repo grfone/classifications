@@ -7,3 +7,5 @@ if __name__ == '__main__':
     extract_classifications.extract()
     count_classifications.count()
     extract_compounds_of_interest.extract('Trialkylamines')
+
+    print()
