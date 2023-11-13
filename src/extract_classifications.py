@@ -12,14 +12,14 @@ def extract():
     if os.path.exists('./results/classifications_dictionary.pklz'):
         return
 
-    # Create resources folder
-    if not os.path.exists('./results'):
-        os.mkdir('results')
+    # Create resources folder if it doesn't exist yet
+    if not os.path.exists('./resources'):
+        os.mkdir('resources')
 
     # Download 'classifications.zip' file
     if not os.path.exists('./resources/classifications.zip'):
         print(f"Downloading 'classifications.zip' file")
-        link_2_classifications = "https://drive.google.com/file/d/1VEmzKmS5VsMLwZc9F5HBDcSj4p8cOCim/view?usp=drive_link"
+        link_2_classifications = "https://drive.google.com/file/d/1-5m_BcCRAGdk5VPeIgcOzJZKK26yIr4i/view?usp=drive_link"
         gdown.download(transform_link(link_2_classifications), './resources/classifications.zip')
 
     # Check if the file has been already decompressed, but if not, decompress it now
@@ -69,7 +69,11 @@ def extract():
                     if ancestor not in classifications[compound_pid]:
                         classifications[compound_pid].append(ancestor)
 
+    # Create results folder if it doesn't exist yet
+    if not os.path.exists('./results'):
+        os.mkdir('results')
+
     # Save the dictionary with all the data in a file called 'related.pklz'
-    print('Saving the dictionary')
+    print("Saving the classifications' dictionary")
     with bz2.BZ2File('./results/classifications_dictionary.pklz', 'wb') as f:
         pickle.dump(classifications, f)

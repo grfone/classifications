@@ -10,7 +10,7 @@ def extract(compound_type):
 
     if not os.path.exists('./resources/descriptors.pklz'):
         print(f"Downloading 'descriptors.pklz' file")
-        link_to_descriptors = "https://drive.google.com/file/d/1VEmzKmS5VsMLwZc9F5HBDcSj4p8cOCim/view?usp=drive_link"
+        link_to_descriptors = "https://drive.google.com/file/d/1IAfOzhww4c1C1-02z2qw_qaWjDuR_l-g/view?usp=drive_link"
         gdown.download(transform_link(link_to_descriptors), './resources/descriptors.pklz')
 
     # Download 'fingerprints.pklz' file
