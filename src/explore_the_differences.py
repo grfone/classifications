@@ -7,6 +7,8 @@ from utils.from_copied_link_to_download_link import transform_link
 
 
 def explore(compound_type):
+    print("Looking at the similarities and differences between our and their data")
+
     # Download their classifications
     if not os.path.exists('./resources/smrt_classyfire.tsv'):
         print(f"Downloading 'smrt_classyfire.tsv' file")
@@ -57,8 +59,10 @@ def explore(compound_type):
         for compound in in_theirs_but_not_in_ours:
             f.write(str(compound) + "\n")
 
-    # Print the coincidences:
+    print("Differences saved in: in_our_but_not_in_theirs.txt and in_theirs_but_not_in_ours.txt")
+
     print("Coincidences:", coincidences)
+
 
 
 
