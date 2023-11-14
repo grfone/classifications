@@ -6,8 +6,11 @@ from utils.from_copied_link_to_download_link import transform_link
 
 
 def extract(compound_type):
-    # Download 'descriptors.pklz' file
+    # If the compounds of interest have already been extracted, then exit this function.
+    if os.path.exists('./results/descriptors_trialkylamines.pklz'):
+        return
 
+    # Download 'descriptors.pklz' file
     if not os.path.exists('./resources/descriptors.pklz'):
         print(f"Downloading 'descriptors.pklz' file")
         link_to_descriptors = "https://drive.google.com/file/d/1IAfOzhww4c1C1-02z2qw_qaWjDuR_l-g/view?usp=drive_link"
